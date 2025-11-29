@@ -1,12 +1,12 @@
 #pragma once
 #ifndef ISTATE_H
 #define ISTATE_H
-
+#include <iostream>
 #include <string>
 
 class MSHStateManager;
 
-class IState {
+class IState { //yani ne anlatam
 public:
     virtual ~IState() {}
     virtual std::string GetName() const = 0;
