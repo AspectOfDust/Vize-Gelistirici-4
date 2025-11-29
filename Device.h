@@ -1,11 +1,11 @@
 #pragma once
 #ifndef DEVICE_H
 #define DEVICE_H
-
+#include <iostream>
 #include <string>
 
 enum PowerState {
-    POWER_OFF,
+    POWER_OFF,      //Enum Chatgpt fikrydi beğendim çaktırma
     POWER_ON
 };
 
@@ -22,14 +22,20 @@ protected:
     ActiveState activeState;
 
 public:
-    Device(int id, const std::string& name)
+    Device(int id, const std::string& name) //Constructur
         : id(id), name(name), powerState(POWER_OFF), activeState(ACTIVE) {
     }
 
-    virtual ~Device() {}
+    virtual ~Device() {} //Deconstruc fln
 
-    int GetId() const { return id; }
-    std::string GetName() const { return name; }
+    int GetId() const 
+    {
+        return id; 
+    }
+    std::string GetName() const 
+    {
+        return name;
+    }
 
     virtual void TurnOn() {
         powerState = POWER_ON;
@@ -45,10 +51,10 @@ public:
     void SetInactive() { activeState = INACTIVE; }
     void SetActive() { activeState = ACTIVE; }
 
-    // Her somut cihaz kendi durum bilgisini yazd�racak
+    // Her somut cihaz kendi durum bilgisini yazdıracak
     virtual void PrintStatus() const = 0;
 
-    // Sens�r cihazlar�nda kullan�lacak (kamera, duman, gaz)
+    // Sensör cihazlarında kullanılacak (kamera, duman, gaz)
     virtual void Detect() {}
 };
 
